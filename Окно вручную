@@ -1,0 +1,24 @@
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+program Okno;
+uses System.Windows.Forms, System.Drawing;
+var f1: System.Windows.Forms.Form;
+b1: System.Windows.Forms.Button;
+
+begin
+  f1 := new Form;
+  f1.Text := 'Проба WinForms';
+  f1.HelpButton := true;
+  f1.Size := new Size(500,250);
+  f1.BackColor := Color.Aquamarine;
+  f1.StartPosition := FormStartPosition.CenterScreen;
+  b1 := new Button();
+  b1.Size := new Size(120,35);
+  b1.Text := 'Нажми меня!';
+  b1.Left := 200;
+  b1.Top := 100;
+  //
+  f1.Controls.Add(b1);
+  Application.Run(f1); //запускает форму  
+end.
