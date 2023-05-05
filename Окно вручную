@@ -2,23 +2,40 @@
 {$reference 'System.Windows.Forms.dll'}
 {$reference 'System.Drawing.dll'}
 program Okno;
-uses System.Windows.Forms, System.Drawing;
+
+uses System.Windows.Forms, System.Drawing,System;
 var f1: System.Windows.Forms.Form;
 b1: System.Windows.Forms.Button;
+lb1: System.Windows.Forms.Label;
+
+procedure bt_click(sender: object; e: EventArgs);
+begin
+  f1.Close;
+end;
 
 begin
+  // форма
   f1 := new Form;
-  f1.Text := 'Проба WinForms';
-  f1.HelpButton := true;
-  f1.Size := new Size(500,250);
+  f1.Text := 'Окно с кнопкой';
+  f1.Size := new Size(400,150);
   f1.BackColor := Color.Aquamarine;
   f1.StartPosition := FormStartPosition.CenterScreen;
+  // кнопка
   b1 := new Button();
   b1.Size := new Size(120,35);
-  b1.Text := 'Нажми меня!';
-  b1.Left := 200;
-  b1.Top := 100;
+  b1.Text := 'Закрыть окно';
+  b1.Left := 125;
+  b1.Top := 50;  
+  // текстовое поле
+  lb1 := System.Windows.Forms.Label.Create;
+  lb1.Size := new Size(200,35);  
+  lb1.Left := 70;
+  lb1.Top := 20;
+  lb1.AutoSize := true; //авторазмер под текст
+  lb1.Text := 'Щелчок по кнопке приводит к закрытию окна';
   //
+  b1.Click += bt_click;
+  f1.Controls.Add(lb1); 
   f1.Controls.Add(b1);
   Application.Run(f1); //запускает форму  
 end.
