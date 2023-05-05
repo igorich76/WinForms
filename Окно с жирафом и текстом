@@ -1,0 +1,51 @@
+// 05-05-2023
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+program Okno_Girafo;
+
+uses System.Windows.Forms, System.Drawing,System;
+
+var f1: System.Windows.Forms.Form;
+b1: System.Windows.Forms.Button;
+lb1: System.Windows.Forms.Label;
+lb2: System.Windows.Forms.Label;
+img: System.Windows.Forms.PictureBox;
+
+procedure bt_click(sender: object; e: EventArgs);
+begin
+  f1.Close;
+end;
+
+begin
+  // форма
+  f1 := new Form;
+  f1.Text := 'Окно с кнопкой';
+  f1.Size := new Size(400,250);
+  f1.BackColor := Color.Aquamarine;
+  f1.StartPosition := FormStartPosition.CenterScreen;
+   // кнопка
+  b1 := new Button();
+  b1.Size := new Size(120,25);
+  b1.Text := 'Закрыть окно';
+  b1.Left := 140;
+  b1.Top := 180;  
+  // текстовое поле1
+  lb1 := System.Windows.Forms.Label.Create;
+  lb1.Size := new Size(100,35);  
+  lb1.Left := 70;
+  lb1.Top := 50;
+  lb1.Text := 'Это жираф. Он большой. Он всё видит.';
+  lb1.Location := new Point(250,50);
+  // поле2 с будущей картинкой
+  lb2 := System.Windows.Forms.Label.Create;
+  lb2.Size := new Size(130,150);  
+  lb2.BackgroundImage := Image.FromFile('C:\Users\igori\OneDrive\Рабочий стол\ПРОЕКТЫ\Окно\girafo.jpg');
+  lb2.Location := new Point(20,10);
+  // 
+  b1.Click += bt_click;
+  f1.Controls.Add(lb1); 
+  f1.Controls.Add(lb2); 
+  f1.Controls.Add(b1);
+  Application.Run(f1); //запускает форму  
+end.
