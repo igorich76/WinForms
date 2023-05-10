@@ -21,11 +21,12 @@ begin
   b1.Top := 180;  
   // текстовое поле1
   var lb1 := System.Windows.Forms.Label.Create;
-  lb1.Size := new Size(100,35);  
+  lb1.Size := new Size(120,100);  
   lb1.Left := 70;
   lb1.Top := 50;
-  lb1.Text := 'Это жираф. Он большой. Он всё видит.';
   lb1.Location := new Point(250,50);
+  lb1.Text := 'Это жираф.'#13#10 + 'Он большой.'#13#10 + 'Он всё видит.';
+  lb1.Font := new Font('Arial',12);
   // поле2 с картинкой
   var lb2 := System.Windows.Forms.Label.Create;
   lb2.Size := new Size(130,150);  
