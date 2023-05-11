@@ -1,7 +1,4 @@
 // 05-05-2023, лямбды добавил, переменные объявлены по ходу программы
-{$apptype windows}
-{$reference 'System.Windows.Forms.dll'}
-{$reference 'System.Drawing.dll'}
 program Okno_Girafo;
 
 uses System.Windows.Forms, System.Drawing,System;
@@ -27,12 +24,14 @@ begin
   lb1.Location := new Point(250,50);
   lb1.Text := 'Это жираф.'#13#10 + 'Он большой.'#13#10 + 'Он всё видит.';
   lb1.Font := new Font('Arial',12);
+  lb1.BackColor := Color.Gray;
   // поле2 с картинкой
   var lb2 := System.Windows.Forms.Label.Create;
   lb2.Size := new Size(130,150);  
   lb2.BackgroundImage := Image.FromFile('C:\Users\igori\OneDrive\Рабочий стол\ПРОЕКТЫ\Окно\girafo.jpg');
   lb2.BackgroundImageLayout :=ImageLayout.Zoom;
   lb2.Location := new Point(20,10);
+  lb2.BackColor := Color.Gray;  
   // 
   b1.Click += (sender, ea)-> 
   begin
