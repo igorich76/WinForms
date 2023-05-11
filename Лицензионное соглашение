@@ -1,0 +1,29 @@
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+program Licuha;
+
+uses System.Windows.Forms, System.Drawing,System;
+
+begin
+  //форма
+  var f1 := new Form;
+  f1.Text := 'Лицензионное соглашение';
+  f1.StartPosition := FormStartPosition.CenterScreen;
+  f1.BackColor := Color.Aqua;
+  // чекбокс
+  var chek := new CheckBox;
+  chek.BackColor := Color.Yellow;
+  chek.Location := new Point(100,100);
+  //текстовое поле
+  var lb1 := System.Windows.Forms.label.create;
+  lb1.Size := new Size(200,40);
+  lb1.BackColor := Color.Gray;
+  lb1.Location := new Point(50,49);
+  lb1.text := 'Примите лицензионное соглашение';
+  lb1.Font := new Font('Arial',12);  
+  //запуск элементов на форме
+  f1.Controls.Add(lb1);
+  f1.Controls.Add(chek);
+  Application.Run(f1);
+end.
