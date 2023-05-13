@@ -21,9 +21,21 @@ begin
   lb1.BackColor := Color.Gray;
   lb1.Location := new Point(50,49);
   lb1.text := 'Примите лицензионное соглашение';
-  lb1.Font := new Font('Arial',12);  
+  lb1.Font := new Font('Arial',12); 
+  //кнопка
+  var btn := new Button;
+  btn.Size := new Size(120,35);
+  btn.Text := 'Закрыть';
+  btn.Left := 90;
+  btn.Top := 180;
+  btn.BackColor := Color.LightGray;
   //запуск элементов на форме
+  btn.Click += (sender, ea) →
+  begin
+    f1.Close;
+  end;
   f1.Controls.Add(lb1);
   f1.Controls.Add(chek);
+  f1.Controls.Add(btn);
   Application.Run(f1);
 end.
