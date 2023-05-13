@@ -1,0 +1,39 @@
+//13-05-2023
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+program Простой_Калькулятор;
+
+uses System.Windows.Forms, System.Drawing,System;
+
+begin
+  //форма
+  var f1 := new Form;
+  f1.Text := 'Мой калькулятор';
+  f1.StartPosition := FormStartPosition.CenterScreen;
+  f1.BackColor := Color.Gray;
+  //окно ввода1
+  var okno1 := new TextBox;
+  okno1.SetBounds(20,30,50,20);
+  //окно ввода2
+  var okno2 := new TextBox;
+  okno2.SetBounds(150,30,50,20); 
+  //кнопка1
+  var btn1 := new Button;
+  btn1.SetBounds(20,70,50,35);
+  btn1.Text := '+';
+  btn1.Font := new Font('',30);  
+  //кнопка2
+  var btn2 := new Button;
+  btn2.SetBounds(80,70,50,35);
+  btn2.Text := '-';
+  btn2.Font := new Font('',30); 
+  //кнопка3
+  //кнопка4
+  //
+  f1.Controls.Add(btn1);
+  f1.Controls.Add(btn2);
+  f1.Controls.Add(okno1);
+  f1.Controls.Add(okno2);
+  Application.Run(f1);
+end.
