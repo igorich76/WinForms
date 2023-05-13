@@ -36,10 +36,10 @@ uses System.Windows.Forms, System.Drawing,System;
   tb_2.SetBounds(80,30,50,50);
   tb_2.Font := new Font('',30);
   //окно вывода
-  var vyvod := new TextBox;
-  vyvod.AutoSize := false;
-  vyvod.SetBounds(150,30,100,50);
-  vyvod.Font := new Font('',30);
+  var tb_3_output := new TextBox;
+  tb_3_output.AutoSize := false;
+  tb_3_output.SetBounds(150,30,100,50);
+  tb_3_output.Font := new Font('',30);
   //кнопка1
   var btn1 := new Button;
   btn1.SetBounds(20,100,50,35);
@@ -66,7 +66,7 @@ uses System.Windows.Forms, System.Drawing,System;
     var a := integer.Parse(tb_1.Text);
     var b := integer.Parse(tb_2.Text);
     var c := (a + b).ToString;
-    vyvod.Text := c;
+    tb_3_output.Text := c;
   end;
   //обработчик "-"
   btn2.Click += (sender, ea)-> 
@@ -74,7 +74,7 @@ uses System.Windows.Forms, System.Drawing,System;
     var a := integer.Parse(tb_1.Text);
     var b := integer.Parse(tb_2.Text);
     var c := (a - b).ToString;
-    vyvod.Text := c;
+    tb_3_output.Text := c;
   end;
   //обработчик "*"
   btn3.Click += (sender, ea)-> 
@@ -82,7 +82,7 @@ uses System.Windows.Forms, System.Drawing,System;
     var a := integer.Parse(tb_1.Text);
     var b := integer.Parse(tb_2.Text);
     var c := (a * b).ToString;
-    vyvod.Text := c;
+    tb_3_output.Text := c;
   end;
   //обработчик "/"
   btn4.Click += (sender, ea)-> 
@@ -90,7 +90,7 @@ uses System.Windows.Forms, System.Drawing,System;
     var a := integer.Parse(tb_1.Text);
     var b := integer.Parse(tb_2.Text);
     var c := (a / b).ToString;
-    vyvod.Text := c;
+    tb_3_output.Text := c;
   end;
   //
   f1.Controls.Add(btn1);
@@ -99,7 +99,7 @@ uses System.Windows.Forms, System.Drawing,System;
   f1.Controls.Add(btn4);
   f1.Controls.Add(tb_1);
   f1.Controls.Add(tb_2);
-  f1.Controls.Add(vyvod);
+  f1.Controls.Add(tb_3_output);
   f1.Controls.Add(lb1);
   f1.Controls.Add(lb2);
   f1.Controls.Add(lb3);
