@@ -26,15 +26,15 @@ uses System.Windows.Forms, System.Drawing,System;
   lb3.BackColor := Color.LightGray;
   lb3.Text := 'Итог вычисления';
   //окно ввода1
-  var okno1 := new TextBox;
-  okno1.AutoSize := false;
-  okno1.SetBounds(20,30,50,50);
-  okno1.Font := new Font('',30);
+  var tb_1 := new TextBox;
+  tb_1.AutoSize := false;
+  tb_1.SetBounds(20,30,50,50);
+  tb_1.Font := new Font('',30);
   //окно ввода2
-  var okno2 := new TextBox;
-  okno2.AutoSize := false;
-  okno2.SetBounds(80,30,50,50);
-  okno2.Font := new Font('',30);
+  var tb_2 := new TextBox;
+  tb_2.AutoSize := false;
+  tb_2.SetBounds(80,30,50,50);
+  tb_2.Font := new Font('',30);
   //окно вывода
   var vyvod := new TextBox;
   vyvod.AutoSize := false;
@@ -60,12 +60,36 @@ uses System.Windows.Forms, System.Drawing,System;
   btn4.SetBounds(200,100,50,35);
   btn4.Text := '/';
   btn4.Font := new Font('',30);
-  // 
+  //обработчик "+"
   btn1.Click += (sender, ea)-> 
   begin
-    var a := integer.Parse(okno1.Text);
-    var b := integer.Parse(okno2.Text);
+    var a := integer.Parse(tb_1.Text);
+    var b := integer.Parse(tb_2.Text);
     var c := (a + b).ToString;
+    vyvod.Text := c;
+  end;
+  //обработчик "-"
+  btn2.Click += (sender, ea)-> 
+  begin
+    var a := integer.Parse(tb_1.Text);
+    var b := integer.Parse(tb_2.Text);
+    var c := (a - b).ToString;
+    vyvod.Text := c;
+  end;
+  //обработчик "*"
+  btn3.Click += (sender, ea)-> 
+  begin
+    var a := integer.Parse(tb_1.Text);
+    var b := integer.Parse(tb_2.Text);
+    var c := (a * b).ToString;
+    vyvod.Text := c;
+  end;
+  //обработчик "/"
+  btn4.Click += (sender, ea)-> 
+  begin
+    var a := integer.Parse(tb_1.Text);
+    var b := integer.Parse(tb_2.Text);
+    var c := (a / b).ToString;
     vyvod.Text := c;
   end;
   //
@@ -73,8 +97,8 @@ uses System.Windows.Forms, System.Drawing,System;
   f1.Controls.Add(btn2);
   f1.Controls.Add(btn3);
   f1.Controls.Add(btn4);
-  f1.Controls.Add(okno1);
-  f1.Controls.Add(okno2);
+  f1.Controls.Add(tb_1);
+  f1.Controls.Add(tb_2);
   f1.Controls.Add(vyvod);
   f1.Controls.Add(lb1);
   f1.Controls.Add(lb2);
