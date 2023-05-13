@@ -12,28 +12,56 @@ begin
   f1.Text := 'Мой калькулятор';
   f1.StartPosition := FormStartPosition.CenterScreen;
   f1.BackColor := Color.Gray;
+  f1.SetBounds(10,10,300,200);
+  //текстовое поле1
+  var lb1 := System.Windows.Forms.Label.Create;
+  lb1.Setbounds(10,10,50,50);
+  lb1.BackColor := Color.Green;
+  //текстовое поле2
+  //текстовое поле3
   //окно ввода1
   var okno1 := new TextBox;
-  okno1.SetBounds(20,30,50,20);
+  okno1.AutoSize := false;
+  okno1.SetBounds(20,30,50,50);
+  okno1.Font := new Font('',30);
   //окно ввода2
   var okno2 := new TextBox;
-  okno2.SetBounds(150,30,50,20); 
+  okno2.AutoSize := false;
+  okno2.SetBounds(80,30,50,50);
+  okno2.Font := new Font('',30);
+  //окно вывода
+  var vyvod := new TextBox;
+  vyvod.AutoSize := false;
+  vyvod.SetBounds(150,30,100,50);
+  vyvod.Font := new Font('',30);
   //кнопка1
   var btn1 := new Button;
-  btn1.SetBounds(20,70,50,35);
+  btn1.SetBounds(20,100,50,35);
   btn1.Text := '+';
   btn1.Font := new Font('',30);  
   //кнопка2
   var btn2 := new Button;
-  btn2.SetBounds(80,70,50,35);
+  btn2.SetBounds(80,100,50,35);
   btn2.Text := '-';
   btn2.Font := new Font('',30); 
   //кнопка3
+  var btn3 := new Button;
+  btn3.SetBounds(140,100,50,35);
+  btn3.Text := '*';
+  btn3.Font := new Font('',30);
   //кнопка4
+  var btn4 := new Button;
+  btn4.SetBounds(200,100,50,35);
+  btn4.Text := '/';
+  btn4.Font := new Font('',30);
   //
   f1.Controls.Add(btn1);
   f1.Controls.Add(btn2);
+  f1.Controls.Add(btn3);
+  f1.Controls.Add(btn4);
   f1.Controls.Add(okno1);
   f1.Controls.Add(okno2);
+  f1.Controls.Add(vyvod);
+  f1.Controls.Add(lb1);
   Application.Run(f1);
 end.
