@@ -1,12 +1,9 @@
 //13-05-2023
+##
 {$apptype windows}
 {$reference 'System.Windows.Forms.dll'}
 {$reference 'System.Drawing.dll'}
-program Простой_Калькулятор;
-
 uses System.Windows.Forms, System.Drawing,System;
-
-begin
   //форма
   var f1 := new Form;
   f1.Text := 'Мой калькулятор';
@@ -15,10 +12,19 @@ begin
   f1.SetBounds(10,10,300,200);
   //текстовое поле1
   var lb1 := System.Windows.Forms.Label.Create;
-  lb1.Setbounds(10,10,50,50);
-  lb1.BackColor := Color.Green;
+  lb1.Setbounds(20,5,50,20);
+  lb1.BackColor := Color.LightGray;
+  lb1.Text := 'Число 1';
   //текстовое поле2
+  var lb2 := System.Windows.Forms.Label.Create;
+  lb2.Setbounds(80,5,50,20);
+  lb2.BackColor := Color.LightGray;
+  lb2.Text := 'Число 2';
   //текстовое поле3
+  var lb3 := System.Windows.Forms.Label.Create;
+  lb3.Setbounds(150,5,100,20);
+  lb3.BackColor := Color.LightGray;
+  lb3.Text := 'Итог вычисления';
   //окно ввода1
   var okno1 := new TextBox;
   okno1.AutoSize := false;
@@ -54,6 +60,14 @@ begin
   btn4.SetBounds(200,100,50,35);
   btn4.Text := '/';
   btn4.Font := new Font('',30);
+  // 
+  btn1.Click += (sender, ea)-> 
+  begin
+    var a := integer.Parse(okno1.Text);
+    var b := integer.Parse(okno2.Text);
+    var c := (a + b).ToString;
+    vyvod.Text := c;
+  end;
   //
   f1.Controls.Add(btn1);
   f1.Controls.Add(btn2);
@@ -63,5 +77,6 @@ begin
   f1.Controls.Add(okno2);
   f1.Controls.Add(vyvod);
   f1.Controls.Add(lb1);
+  f1.Controls.Add(lb2);
+  f1.Controls.Add(lb3);
   Application.Run(f1);
-end.
