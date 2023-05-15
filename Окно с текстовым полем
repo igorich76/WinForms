@@ -8,6 +8,8 @@ uses System.Windows.Forms, System.Drawing,System;
 var forma := new Form;
 forma.StartPosition := FormStartPosition.CenterScreen;
 forma.Setbounds(10,10,400,175);
+forma.BackColor := Color.LightGray;
+forma.Text := 'Окно с текстовым полем';
 //текстовая метка
 var lb_1 := System.Windows.Forms.label.create;
 lb_1.Setbounds(10,10,360,30);
