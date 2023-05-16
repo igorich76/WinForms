@@ -11,7 +11,7 @@ forma.Setbounds(10,10,400,175);
 forma.BackColor := Color.LightGray;
 forma.Text := 'Окно с текстовым полем';
 //текстовая метка
-var lb_1 := System.Windows.Forms.label.create;
+var lb_1 := new &label;
 lb_1.Setbounds(10,10,360,30);
 lb_1.BackColor := Color.Yellow;
 lb_1.Font := new Font('',12);
