@@ -1,3 +1,4 @@
+//16-05-2023
 {$apptype windows}
 {$reference 'System.Windows.Forms.dll'}
 {$reference 'System.Drawing.dll'}
@@ -15,12 +16,13 @@ begin
   var chek := new CheckBox;
   chek.BackColor := Color.Yellow;
   chek.Location := new Point(100,100);
+  chek.Text := '  Принимаю';
   //текстовое поле
   var lb1 := System.Windows.Forms.label.create;
   lb1.Size := new Size(200,40);
-  lb1.BackColor := Color.Gray;
+  lb1.BackColor := Color.LightGray;
   lb1.Location := new Point(50,49);
-  lb1.text := 'Примите лицензионное соглашение';
+  lb1.text := 'Примите лицензионное соглашение!';
   lb1.Font := new Font('Arial',12); 
   //кнопка
   var btn := new Button;
