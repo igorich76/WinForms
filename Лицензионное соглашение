@@ -18,7 +18,7 @@ begin
   chek.Location := new Point(100,100);
   chek.Text := '  Принимаю';
   //текстовое поле
-  var lb1 := System.Windows.Forms.label.create;
+  var lb_1 := new &label;
   lb1.Size := new Size(200,40);
   lb1.BackColor := Color.LightGray;
   lb1.Location := new Point(50,49);
