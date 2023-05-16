@@ -34,8 +34,17 @@ begin
   //запуск элементов на форме
   btn.Click += (sender, ea) →
   begin
-    f1.Close;
+    if chek.Checked <> false then begin 
+      f1.Close;
+    end else begin
+      MessageBox.Show('Примите условия лицензии или просто нажмите на пункт "Принять"', 
+      'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error, 
+      MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+    end;
+    
   end;
+  
+  f1.TopMost := true;  
   f1.Controls.Add(lb1);
   f1.Controls.Add(chek);
   f1.Controls.Add(btn);
