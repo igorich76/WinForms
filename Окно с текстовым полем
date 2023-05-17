@@ -36,8 +36,7 @@ btn1.Click += (sender, ea) →
 begin
   if (tb_1.Text <> string.Empty) then lb_1.Text := tb_1.Text
   else MessageBox.Show('Введите текст!', 
-      'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error, 
-      MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);;
+      'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error);
 end;
 //
 btn2.Click += (sender, ea) → 
