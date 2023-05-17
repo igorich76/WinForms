@@ -1,13 +1,10 @@
-// 17-05-2023
-//16-05-2023
+##
 {$apptype windows}
 {$reference 'System.Windows.Forms.dll'}
 {$reference 'System.Drawing.dll'}
-program Licuha;
 
 uses System.Windows.Forms, System.Drawing,System;
 
-begin
   //форма
   var f1 := new Form;
   f1.Text := 'Лицензионное соглашение';
@@ -50,5 +47,3 @@ begin
   f1.Controls.Add(chek);
   f1.Controls.Add(btn);
   Application.Run(f1);
-end.
-
