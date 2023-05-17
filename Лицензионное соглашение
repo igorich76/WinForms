@@ -1,52 +1,49 @@
-//16-05-2023
+// 17-05-2023
+##
 {$apptype windows}
 {$reference 'System.Windows.Forms.dll'}
 {$reference 'System.Drawing.dll'}
-program Licuha;
-
 uses System.Windows.Forms, System.Drawing,System;
-
+//форма
+var forma := new Form;
+forma.StartPosition := FormStartPosition.CenterScreen;
+forma.Setbounds(10,10,400,175);
+forma.BackColor := Color.LightGray;
+forma.Text := 'Окно с текстовым полем';
+//текстовая метка
+var lb_1 := new &label;
+lb_1.Setbounds(10,10,360,30);
+lb_1.BackColor := Color.Yellow;
+lb_1.Font := new Font('',12);
+lb_1.Text := 'Введите в поле ниже текст';
+//текстовое поле
+var tb_1 := new TextBox;
+tb_1.AutoSize := false;
+tb_1.SetBounds(10,50,360,30);
+tb_1.Font := new Font('',12);
+//кнопка1
+var btn1 := new Button;
+btn1.SetBounds(60,90,100,35);
+btn1.Text := 'Применить';
+btn1.Font := new Font('',12); 
+//кнопка2
+var btn2 := new Button;
+btn2.SetBounds(230,90,100,35);
+btn2.Text := 'Закрыть';
+btn2.Font := new Font('',12); 
+//вывод сообщения
+btn1.Click += (sender, ea) →
 begin
-  //форма
-  var f1 := new Form;
-  f1.Text := 'Лицензионное соглашение';
-  f1.StartPosition := FormStartPosition.CenterScreen;
-  f1.BackColor := Color.Aqua;
-  // чекбокс
-  var chek := new CheckBox;
-  chek.BackColor := Color.Yellow;
-  chek.Location := new Point(100,100);
-  chek.Text := '  Принимаю';
-  //текстовое поле
-  var lb_1 := new &label;
-  lb1.Size := new Size(200,40);
-  lb1.BackColor := Color.LightGray;
-  lb1.Location := new Point(50,49);
-  lb1.text := 'Примите лицензионное соглашение!';
-  lb1.Font := new Font('Arial',12); 
-  //кнопка
-  var btn := new Button;
-  btn.Size := new Size(120,35);
-  btn.Text := 'Закрыть';
-  btn.Left := 90;
-  btn.Top := 180;
-  btn.BackColor := Color.LightGray;
-  //запуск элементов на форме
-  btn.Click += (sender, ea) →
-  begin
-    if chek.Checked <> false then begin 
-      f1.Close;
-    end else begin
-      MessageBox.Show('Примите условия лицензии или просто нажмите на пункт "Принять"', 
-      'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error, 
-      MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
-    end;
-    
-  end;
-  
-  f1.TopMost := true;  
-  f1.Controls.Add(lb1);
-  f1.Controls.Add(chek);
-  f1.Controls.Add(btn);
-  Application.Run(f1);
-end.
+  lb_1.Text := tb_1.Text;
+end;
+//
+btn2.Click += (sender, ea) → 
+begin
+  forma.Close;
+end;
+//запуск
+forma.Controls.Add(tb_1);
+forma.Controls.Add(btn1);
+forma.Controls.Add(btn2);
+forma.Controls.Add(lb_1);
+Application.Run(forma);
