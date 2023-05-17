@@ -1,4 +1,4 @@
-// 15-05-2023
+// 17-05-2023
 ##
 {$apptype windows}
 {$reference 'System.Windows.Forms.dll'}
@@ -31,7 +31,21 @@ var btn2 := new Button;
 btn2.SetBounds(230,90,100,35);
 btn2.Text := 'Закрыть';
 btn2.Font := new Font('',12); 
+//вывод сообщения
+btn1.Click += (sender, ea) →
+begin
+  if (tb_1.Text <> string.Empty) then lb_1.Text := tb_1.Text
+  else MessageBox.Show('Введите текст!', 
+      'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error, 
+      MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);;
+end;
+//
+btn2.Click += (sender, ea) → 
+begin
+  forma.Close;
+end;
 //запуск
+forma.TopMost := true;  
 forma.Controls.Add(tb_1);
 forma.Controls.Add(btn1);
 forma.Controls.Add(btn2);
