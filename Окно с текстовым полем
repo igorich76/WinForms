@@ -1,4 +1,4 @@
-// 17-05-2023
+// 17-05-2023 ментор много подсказал
 ##
 {$apptype windows}
 {$reference 'System.Windows.Forms.dll'}
@@ -7,7 +7,7 @@ uses System.Windows.Forms, System.Drawing,System;
 //форма
 var forma := new Form;
 forma.StartPosition := FormStartPosition.CenterScreen;
-forma.Setbounds(10,10,400,175);
+forma.Size := new Size(400,175);
 forma.BackColor := Color.LightGray;
 forma.Text := 'Окно с текстовым полем';
 //текстовая метка
@@ -45,9 +45,8 @@ begin
   forma.Close;
 end;
 //запуск
-forma.TopMost := true;  
-forma.Controls.Add(tb_1);
-forma.Controls.Add(btn1);
-forma.Controls.Add(btn2);
-forma.Controls.Add(lb_1);
+tb_1.Parent:= forma; // контрол по-новому
+btn1.Parent:= forma;
+btn2.Parent:= forma;
+lb_1.Parent:= forma;
 Application.Run(forma);
