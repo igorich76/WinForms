@@ -1,21 +1,74 @@
+// вёрстка
 ##
 {$apptype windows}
 {$reference 'System.Windows.Forms.dll'}
 {$reference 'System.Drawing.dll'}
 uses System.Windows.Forms, System.Drawing,System;
 //форма
-var forma := new Form;
-forma.StartPosition := FormStartPosition.CenterScreen;
-forma.Size := new Size(300,500);
-forma.BackColor := Color.LightGray;
-forma.Text := 'Догон';
+var MainForm := new Form;
+MainForm.StartPosition := FormStartPosition.CenterScreen;
+MainForm.Size := new Size(260,500);
+MainForm.BackColor := Color.LightGray;
+MainForm.Text := 'Догон';
+//
+var label_0 := new &Label;
+label_0.Setbounds(10,10,220,70);
+label_0.BackColor := Color.Yellow;
+label_0.Font := new Font('',8);
+label_0.Text := 'Догон - это стратегия, в которой каждая следующая ставка, после неудачной, должна перебивать все проигранные средства за предыдущие пари, а так же получить фиксированную прибыль.';
+//
 //
 var label_1 := new &Label;
-label_1.Setbounds(10,10,240,30);
+label_1.Setbounds(10,100,120,30);
 label_1.BackColor := Color.Yellow;
-//lb_1.Font := new Font('',12);
-label_1.Text := 'Сколько нужно выиграть';
+label_1.Font := new Font('',10);
+label_1.Text := 'Сколько нужно выиграть?';
 //
+var textbox_1 := new TextBox;
+textbox_1.AutoSize := false;
+textbox_1.SetBounds(150,100,80,30);
+textbox_1.Font := new Font('',20);
+//
+var label_2 := new &Label;
+label_2.Setbounds(10,170,120,30);
+label_2.BackColor := Color.Yellow;
+label_2.Font := new Font('',10);
+label_2.Text := 'Сколько проиграли?';
+//
+var textbox_2 := new TextBox;
+textbox_2.AutoSize := false;
+textbox_2.SetBounds(150,170,80,30);
+textbox_2.Font := new Font('',20);
+//
+var label_3 := new &Label;
+label_3.Setbounds(10,240,120,30);
+label_3.BackColor := Color.Yellow;
+label_3.Font := new Font('',10);
+label_3.Text := 'Введите кэф исхода';
+//
+var textbox_3 := new TextBox;
+textbox_3.AutoSize := false;
+textbox_3.SetBounds(150,240,80,30);
+textbox_3.Font := new Font('',20);
+//
+var label_4 := new &Label;
+label_4.Setbounds(10,350,120,30);
+label_4.BackColor := Color.Yellow;
+label_4.Font := new Font('',18);
+label_4.Text := 'Догон =';
+//
+var textbox_4 := new TextBox;
+textbox_4.AutoSize := false;
+textbox_4.SetBounds(150,350,80,30);
+textbox_4.Font := new Font('',20);
 //запуск
-label_1.Parent := forma;
-Application.Run(forma);
+label_0.Parent := MainForm;
+textbox_1.Parent := MainForm;
+label_1.Parent := MainForm;
+textbox_2.Parent := MainForm;
+label_2.Parent := MainForm;
+textbox_3.Parent := MainForm;
+label_3.Parent := MainForm;
+textbox_4.Parent := MainForm;
+label_4.Parent := MainForm;
+Application.Run(MainForm);
