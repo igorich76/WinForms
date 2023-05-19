@@ -68,7 +68,7 @@ ApplyBut.Font := new Font('',18);
 //
 ApplyBut.Click += (sender, ea) →
 begin
-  if (textbox_1.Text = string.Empty) or (textbox_2.Text = string.Empty) or
+  if (textbox_1.Text = string.Empty) or (textbox_2.Text = string.Empty) or // если окно пустое
   (textbox_3.Text = string.Empty) then MessageBox.Show('Введите все данные!',
       'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error)
   else
