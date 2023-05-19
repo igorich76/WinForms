@@ -1,4 +1,4 @@
-// 18-05-2023
+// 19-05-2023
 ##
 {$apptype windows}
 {$reference 'System.Windows.Forms.dll'}
@@ -7,7 +7,7 @@ uses System.Windows.Forms, System.Drawing,System;
 //форма
 var MainForm := new Form;
 MainForm.StartPosition := FormStartPosition.CenterScreen;
-MainForm.Size := new Size(260,450);
+MainForm.Size := new Size(260,500);
 MainForm.BackColor := Color.LightGray;
 MainForm.Text := 'Догон';
 //
@@ -66,6 +66,11 @@ ApplyBut.SetBounds(45,295,150,35);
 ApplyBut.Text := 'Рассчитать';
 ApplyBut.Font := new Font('',18); 
 //
+var ClearBut := new Button;
+ClearBut.SetBounds(45,405,150,35);
+ClearBut.Text := 'Очистить';
+ClearBut.Font := new Font('',18); 
+//
 ApplyBut.Click += (sender, ea) →
 begin
   if (textbox_1.Text = string.Empty) or (textbox_2.Text = string.Empty) or // если окно пустое
@@ -80,6 +85,18 @@ begin
   textbox_4_output.Text := st;   
   end;  
 end;
+//
+ClearBut.Click += (sender, ea) →
+begin
+   if (textbox_1.Text <> string.Empty) or (textbox_2.Text <> string.Empty) or // если окно пустое
+  (textbox_3.Text <> string.Empty) or (textbox_4_output.Text <> string.Empty) then 
+    begin
+      textbox_1.Clear;
+      textbox_2.Clear;
+      textbox_3.Clear;
+      textbox_4_output.Clear;
+    end;
+end;
 //запуск
 label_0.Parent := MainForm;
 textbox_1.Parent := MainForm;
@@ -91,4 +108,5 @@ label_3.Parent := MainForm;
 textbox_4_output.Parent := MainForm;
 label_4.Parent := MainForm;
 ApplyBut.Parent := MainForm;
+ClearBut.Parent := MainForm;
 Application.Run(MainForm);
