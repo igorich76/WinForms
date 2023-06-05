@@ -1,1 +1,52 @@
-
+//05-06-2023
+##
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+uses System.Windows.Forms, System.Drawing,System;
+//форма
+var MainForm := new Form;
+MainForm.StartPosition := FormStartPosition.CenterScreen;
+MainForm.Size := new Size(600,200);
+MainForm.BackColor := Color.LightGray;
+MainForm.Text := 'График функции y=xsinx';
+//
+var button_1:= new Button;
+button_1.SetBounds(300,70,150,35);
+button_1.Text := 'Построить график';
+button_1.Font := new Font('',11); 
+//
+var label1 := new &Label;
+label1.Setbounds(10,70,50,35);
+label1.BackColor := Color.Yellow;
+label1.Font := new Font('',10);
+label1.Text := 'x0';
+//
+var label2 := new &Label;
+label2.Setbounds(10,110,50,35);
+label2.BackColor := Color.Yellow;
+label2.Font := new Font('',10);
+label2.Text := 'xn';
+//
+var textbox_1 := new TextBox;
+textbox_1.AutoSize := false;
+textbox_1.SetBounds(70,70,100,35);
+textbox_1.Font := new Font('',14);
+//
+var textbox_2 := new TextBox;
+textbox_2.AutoSize := false;
+textbox_2.SetBounds(70,110,100,35);
+textbox_2.Font := new Font('',14);
+//
+var pic_box := new PictureBox;
+pic_box.AutoSize := false;
+pic_box.SetBounds(5,5,575,60);
+pic_box.BackColor := Color.SkyBlue;
+//
+label1.Parent := MainForm;
+label2.Parent := MainForm;
+textbox_1.Parent := MainForm;
+textbox_2.Parent := MainForm;
+button_1.Parent := MainForm;
+pic_box.Parent := MainForm;
+Application.Run(MainForm);
