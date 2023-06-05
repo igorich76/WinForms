@@ -7,41 +7,69 @@ uses System.Windows.Forms, System.Drawing,System;
 //форма
 var MainForm := new Form;
 MainForm.StartPosition := FormStartPosition.CenterScreen;
-MainForm.Size := new Size(600,200);
+MainForm.Size := new Size(600,600);
 MainForm.BackColor := Color.LightGray;
-MainForm.Text := 'График функции y=xsinx';
+MainForm.Text := 'График функции y=x*sin(x)';
 //
 var button_1:= new Button;
-button_1.SetBounds(300,70,150,35);
+button_1.SetBounds(300,450,150,35);
 button_1.Text := 'Построить график';
 button_1.Font := new Font('',11); 
 //
 var label1 := new &Label;
-label1.Setbounds(10,70,50,35);
+label1.Setbounds(10,450,50,35);
 label1.BackColor := Color.Yellow;
 label1.Font := new Font('',10);
 label1.Text := 'x0';
 //
 var label2 := new &Label;
-label2.Setbounds(10,110,50,35);
+label2.Setbounds(10,500,50,35);
 label2.BackColor := Color.Yellow;
 label2.Font := new Font('',10);
 label2.Text := 'xn';
 //
 var textbox_1 := new TextBox;
 textbox_1.AutoSize := false;
-textbox_1.SetBounds(70,70,100,35);
+textbox_1.SetBounds(70,450,100,35);
 textbox_1.Font := new Font('',14);
 //
 var textbox_2 := new TextBox;
 textbox_2.AutoSize := false;
-textbox_2.SetBounds(70,110,100,35);
+textbox_2.SetBounds(70,500,100,35);
 textbox_2.Font := new Font('',14);
 //
 var pic_box := new PictureBox;
-pic_box.AutoSize := false;
-pic_box.SetBounds(5,5,575,60);
+//pic_box.AutoSize := false;
+pic_box.SetBounds(5,5,575,400);
 pic_box.BackColor := Color.SkyBlue;
+//
+button_1.Click += (sender, ea) →
+begin
+ var bm := new Bitmap(pic_box.Width,pic_box.Height);
+ pic_box.Image := (Image) (bm);
+ var gr := Graphics.FromImage(pic_box.Image);
+ gr.Clear(Color.White);
+ var n := 10000;
+ var x0 := StrToFloat(textbox_1.Text);
+ var xn := StrToFloat(textbox_2.Text);
+ var c_x := pic_box.Width div 2;
+ var c_y := pic_box.Height div 2;
+ var k := pic_box.Width / (xn - x0);
+ var h := (xn - x0) / n;
+ var x := x0;
+ var p_c := new Pen(Color.Black,1);
+ gr.DrawLine(p_c, 0, c_y, 2 * c_x, c_y);
+ gr.DrawLine(p_c, c_x, 0, c_x, 2 * c_y);
+ //var y: real;
+ for var i:=1 to n do
+   begin
+     var y := x * Sin(x);
+     var x1 := Trunc(x * k) + c_x;
+     var y1 := Trunc(-y * k) + c_y;
+     if (y1 >= 0) and (y1 < 2 * c_y) then bm.SetPixel(x1,y1,Color.Blue);
+     x := x + h;
+   end;
+end;
 //
 label1.Parent := MainForm;
 label2.Parent := MainForm;
