@@ -4,7 +4,7 @@
 {$reference 'System.Windows.Forms.dll'}
 {$reference 'System.Drawing.dll'}
 uses System.Windows.Forms, System.Drawing,System;
-//форма
+//
 var MainForm := new Form;
 MainForm.StartPosition := FormStartPosition.CenterScreen;
 MainForm.Size := new Size(600,600);
@@ -60,7 +60,6 @@ begin
  var p_c := new Pen(Color.Black,1);
  gr.DrawLine(p_c, 0, c_y, 2 * c_x, c_y);
  gr.DrawLine(p_c, c_x, 0, c_x, 2 * c_y);
- //var y: real;
  for var i:=1 to n do
    begin
      var y := x * Sin(x);
