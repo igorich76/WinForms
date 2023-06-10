@@ -1,0 +1,56 @@
+// 10-06-2023 "Мой веб-браузер"
+##
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+uses System.Windows.Forms, System.Drawing,System;
+//форма
+var MainForm := new Form;
+MainForm.StartPosition := FormStartPosition.CenterScreen;
+MainForm.Size := new Size(700,500);
+MainForm.BackColor := Color.LightGray;
+MainForm.Text := 'Мой веб-браузер';
+//
+var textbox_1 := new TextBox;
+//textbox_1.AutoSize := false;
+textbox_1.SetBounds(5,5,500,35);
+textbox_1.Font := new Font('',20);
+textbox_1.Text := 'http://';
+//
+var Open_But := new Button;
+Open_But.SetBounds(520,5,150,38);
+Open_But.Text := 'Открыть';
+Open_But.Font := new Font('',18); 
+//
+var Web_Browser := new WebBrowser;
+Web_Browser.SetBounds(5,50,675,370);
+Web_Browser.AutoSize := true;
+//
+var label_0 := new &Label;
+label_0.Setbounds(300,430,170,20);
+label_0.BackColor := Color.Yellow;
+label_0.Font := new Font('',12);
+label_0.Text := 'Поисковая система:';
+//
+var link_label := new LinkLabel;
+link_label.SetBounds(480,430,130,20);
+link_label.BackColor := Color.Yellow;
+link_label.Font := new Font('',12);
+link_label.Text := 'https://yandex.ru';
+//
+Open_But.Click += (sender, ea) →
+begin
+  Web_Browser.Navigate(textbox_1.Text);
+end;
+//
+link_label.Click += (sender, ea) →
+begin
+  System.Diagnostics.Process.Start('https://yandex.ru');
+end;
+//
+textbox_1.Parent := MainForm;
+Open_But.Parent := MainForm;
+Web_Browser.Parent := MainForm;
+label_0.Parent := MainForm;
+link_label.Parent := MainForm;
+Application.Run(MainForm);
