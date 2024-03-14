@@ -31,7 +31,6 @@ comBox.Font := new Font('',12);
 comBox.Items.Add('Тигр');
 comBox.Items.Add('Лев');
 comBox.Items.Add('Медведь');
-comBox.SelectedIndex := 0;
 comBox.SelectedIndexChanged +=  (sender, ea) → 
 begin
   case comBox.SelectedIndex of
@@ -40,6 +39,7 @@ begin
     2: picBox.Image := lion;
   end;
 end;
+comBox.SelectedIndex := 0;
 //
 btnOk.Click += (sender, ea) → 
 begin
