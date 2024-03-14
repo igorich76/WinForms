@@ -1,0 +1,52 @@
+##
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+uses System.Windows.Forms, System.Drawing,System;
+//
+var formMain := new Form;
+formMain.StartPosition := FormStartPosition.CenterScreen;
+formMain.Size := new Size(300,400);
+formMain.BackColor := Color.LightGray;
+formMain.Text := 'Хищники';
+//
+var btnOk := new Button;
+btnOk.SetBounds(100,310,100,35);
+btnOk.Font := new Font('',12);
+btnOk.Text := 'Ok';
+//
+var picBox := new PictureBox;
+picBox.SetBounds(10,10,265,220);
+picBox.AutoSize := false;
+picBox.BackColor := Color.Yellow;
+picBox.SizeMode := PictureBoxSizeMode.StretchImage;
+//
+var tiger := Image.FromFile('tiger.jpg');
+var bear := Image.FromFile('bear.jpg');
+var lion := Image.FromFile('lion.jpg');
+//
+var comBox := new ComboBox;
+comBox.SetBounds(10,250,265,50);
+comBox.Font := new Font('',12);
+comBox.Items.Add('Тигр');
+comBox.Items.Add('Лев');
+comBox.Items.Add('Медведь');
+comBox.SelectedIndex := 0;
+comBox.SelectedIndexChanged +=  (sender, ea) → 
+begin
+  case comBox.SelectedIndex of
+    0: picBox.Image := tiger;
+    1: picBox.Image := bear;
+    2: picBox.Image := lion;
+  end;
+end;
+//
+btnOk.Click += (sender, ea) → 
+begin
+  formMain.Close;
+end;
+//
+btnOk.Parent:= formMain;
+comBox.Parent := formMain;
+picBox.Parent := formMain;
+Application.Run(formMain);
