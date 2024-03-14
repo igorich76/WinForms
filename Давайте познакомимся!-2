@@ -1,0 +1,60 @@
+##
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+uses System.Windows.Forms, System.Drawing,System;
+//форма
+var forma := new Form;
+forma.StartPosition := FormStartPosition.CenterScreen;
+forma.Size := new Size(400,175);
+forma.BackColor := Color.LightGray;
+forma.Text := 'Давайте познакомимся';
+//текстовая метка
+var lb_1 := new &label;
+lb_1.Setbounds(10,10,360,30);
+lb_1.BackColor := Color.Yellow;
+lb_1.Font := new Font('',12);
+lb_1.Text := 'Как Вас зовут?';
+
+//lb_1.Left := 150;//(140,10,80,25);
+//текстовое поле
+var tb_1 := new TextBox;
+tb_1.AutoSize := false;
+tb_1.SetBounds(10,50,360,30);
+tb_1.Font := new Font('',12);
+//кнопка1
+var btn1 := new Button;
+btn1.SetBounds(60,90,100,35);
+btn1.Text := 'Ок';
+btn1.Font := new Font('',12); 
+//кнопка2
+var btn2 := new Button;
+btn2.SetBounds(230,90,100,35);
+btn2.Text := 'Закрыть';
+btn2.Font := new Font('',12); 
+//вывод сообщения
+btn1.Click += (sender, ea) →
+begin
+  if (tb_1.Text <> string.Empty) then 
+    begin
+      var forma2 := new Form;
+      forma2.StartPosition := FormStartPosition.CenterScreen;
+      forma2.Size := new Size(400,175);
+      forma2.BackColor := Color.LightGray;
+      Application.Run(forma2);
+    end
+  else MessageBox.Show('Введите текст!', 
+      'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error);
+end;
+//
+btn2.Click += (sender, ea) → 
+begin
+  forma.Close;
+end;
+//запуск
+tb_1.Parent:= forma; // контрол по-новому
+btn1.Parent:= forma;
+btn2.Parent:= forma;
+lb_1.Parent:= forma;
+
+Application.Run(forma);
