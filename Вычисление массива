@@ -1,0 +1,113 @@
+##
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+uses System.Windows.Forms, System.Drawing,System;
+//
+var formMain := new Form;
+formMain.StartPosition := FormStartPosition.CenterScreen;
+formMain.Size := new Size(400,500);
+formMain.BackColor := Color.LightGray;
+formMain.Text := 'Вычисление параметров массива';
+//
+var lb_CountMass := new &Label;
+lb_CountMass.Setbounds(10,10,100,35);
+lb_CountMass.BackColor := Color.Yellow;
+lb_CountMass.Font := new Font('',10);
+lb_CountMass.Text := 'Введите длину массива';
+//
+var tb_CountMass := new TextBox;
+tb_CountMass.AutoSize := false;
+tb_CountMass.SetBounds(10,50,40,35);
+tb_CountMass.Font := new Font('',20);
+//
+var button_CountMass := new Button;
+button_CountMass.SetBounds(10,95,100,25);
+button_CountMass.Text := 'Применить';
+button_CountMass.Font := new Font('',10); 
+//
+var lb_Mass := new &Label;
+lb_Mass.Setbounds(10,130,100,50);
+lb_Mass.BackColor := Color.Yellow;
+lb_Mass.Font := new Font('',10);
+lb_Mass.Text := 'Введите элемены массива';
+//
+var tb_Mass := new TextBox;
+tb_Mass.AutoSize := false;
+tb_Mass.SetBounds(10,190,100,220);
+tb_Mass.Font := new Font('',14);
+tb_Mass.Multiline := true;
+//
+var button_Mass := new Button;
+button_Mass.SetBounds(10,420,100,25);
+button_Mass.Text := 'Применить';
+button_Mass.Font := new Font('',10);
+//
+//-------------------------------------------------
+// тестовая часть прграммы!
+var test_textbox1 := new TextBox;
+test_textbox1.AutoSize := false;
+test_textbox1.SetBounds(150,10,150,30);
+test_textbox1.Font := new Font('',14);
+//
+var test_textbox2 := new TextBox;
+test_textbox2.AutoSize := false;
+test_textbox2.SetBounds(150,50,150,30);
+test_textbox2.Font := new Font('',14);
+//
+var CountMass := 0;
+//-------------------------------------------------
+button_CountMass.Click += (sender, ea) →
+begin
+  if (tb_CountMass.Text = string.Empty) 
+    then MessageBox.Show('Введите все данные!',
+      'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error)
+      else 
+        begin
+          CountMass := integer.Parse(tb_CountMass.Text);
+          test_textbox1.Text := CountMass.ToString;
+        end;
+end;
+//-------------------------------------------------
+var mass: array of integer := new integer[CountMass];
+//-------------------------------------------------
+button_Mass.Click += (sender, ea) →
+begin
+  if (tb_Mass.Text = string.Empty) 
+    then MessageBox.Show('Введите все данные!',
+      'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error)
+      else 
+        begin
+          mass := tb_Mass.Text.ToIntegers;
+          test_textbox2.Text := mass.JoinToString;
+          var stroka := tb_Mass.Text.ToIntegers;
+          if (Length(stroka) <> CountMass) then 
+                MessageBox.Show('Ошибка! Параметры массива не совпадают!',
+                    'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error);
+        end;
+end;
+//-------------------------------------------------
+var clearButton := new Button;
+clearButton.SetBounds(180,420,100,25);
+clearButton.Text := 'Очистить';
+clearButton.Font := new Font('',10);
+//-------------------------------------------------
+clearButton.Click += (sender, ea) →
+begin
+  tb_Mass.Clear;
+  tb_CountMass.Clear;
+  test_textbox1.Clear;
+  test_textbox2.Clear;
+end;
+//-------------------------------------------------
+//btnOk.Parent:= formMain;
+button_CountMass.Parent := formMain;
+tb_Mass.Parent := formMain;
+lb_Mass.Parent := formMain;
+lb_CountMass.Parent := formMain;
+tb_CountMass.Parent := formMain;
+button_Mass.Parent := formMain;
+test_textbox1.Parent := formMain;
+test_textbox2.Parent := formMain;
+clearButton.Parent := formMain;
+Application.Run(formMain);
