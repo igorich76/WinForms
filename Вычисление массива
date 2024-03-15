@@ -55,6 +55,11 @@ test_textbox2.AutoSize := false;
 test_textbox2.SetBounds(150,50,150,30);
 test_textbox2.Font := new Font('',14);
 //
+var test_textbox3 := new TextBox;
+test_textbox3.AutoSize := false;
+test_textbox3.SetBounds(150,100,150,30);
+test_textbox3.Font := new Font('',14);
+//
 var CountMass := 0;
 //-------------------------------------------------
 button_CountMass.Click += (sender, ea) →
@@ -70,6 +75,9 @@ begin
 end;
 //-------------------------------------------------
 var mass: array of integer := new integer[CountMass];
+var mass_Mass: array of integer := new integer[CountMass];
+var stroka: array of integer := new integer[CountMass];
+var str := '';
 //-------------------------------------------------
 button_Mass.Click += (sender, ea) →
 begin
@@ -80,12 +88,16 @@ begin
         begin
           mass := tb_Mass.Text.ToIntegers;
           test_textbox2.Text := mass.JoinToString;
-          var stroka := tb_Mass.Text.ToIntegers;
+          str := mass.JoinToString;
+          stroka := tb_Mass.Text.ToIntegers;
           if (Length(stroka) <> CountMass) then 
                 MessageBox.Show('Ошибка! Параметры массива не совпадают!',
                     'Ошибка', MessageBoxButtons.OK, MessageBoxIcon.Error);
         end;
 end;
+//-------------------------------------------------
+str := mass.JoinToString;
+mass_Mass := str.ToIntegers.ToArray;
 //-------------------------------------------------
 var clearButton := new Button;
 clearButton.SetBounds(180,420,100,25);
@@ -109,6 +121,7 @@ tb_CountMass.Parent := formMain;
 button_Mass.Parent := formMain;
 test_textbox1.Parent := formMain;
 test_textbox2.Parent := formMain;
+test_textbox3.Parent := formMain;
 clearButton.Parent := formMain;
 Application.Run(formMain);
 ////////////////////////////////////////////////////////////////
