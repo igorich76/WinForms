@@ -88,7 +88,7 @@ end;
 //
 ClearBut.Click += (sender, ea) →
 begin
-   if (textbox_1.Text <> string.Empty) or (textbox_2.Text <> string.Empty) or // если окно пустое
+   if (textbox_1.Text <> string.Empty) or (textbox_2.Text <> string.Empty) or // если окно не пустое
   (textbox_3.Text <> string.Empty) or (textbox_4_output.Text <> string.Empty) then 
     begin
       textbox_1.Clear;
