@@ -111,3 +111,36 @@ test_textbox1.Parent := formMain;
 test_textbox2.Parent := formMain;
 clearButton.Parent := formMain;
 Application.Run(formMain);
+////////////////////////////////////////////////////////////////
+математика:
+///////////////////////////////////////////////////////////////
+## //программа вычисления параметров массива
+var mass := new List<integer>;
+//var mass := Lst(1,2,3,4,5);
+var n := ReadInteger('Введите длину массива:');
+for var i := 0 to n-1 do
+  mass.Add(ReadInteger);
+//--------------------------
+Println(mass); //вывод полученного массива
+Println(n); //количество элементов
+mass.Sum.Println; //сумма элементов
+mass.Product.Println; //произведение элементов
+//--------------------------
+var cnt_Положительных := 0;
+for var i := 0 to mass.Count-1 do
+  if (mass[i] > 0) then cnt_Положительных += 1;
+Println(cnt_Положительных); //количество положительных
+//--------------------------
+//количество чётных
+var cnt_Четных := 0;
+for var i := 0 to mass.Count-1 do
+  if (mass[i] mod 2 = 0) then cnt_Четных += 1;
+Println(cnt_Четных);
+//------------------------------
+mass.Max.Println; //наибольший элемент
+//--------------------------------
+var (maxi,numberMaxi)  := (mass[0],0);
+for var i := 0 to mass.Count-1 do
+  if maxi < mass[i] then numberMaxi := i;
+Print(numberMaxi); //индекс(или номер) наибольшего элемента
+
