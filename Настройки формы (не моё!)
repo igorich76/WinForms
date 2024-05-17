@@ -1,0 +1,20 @@
+##
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+ 
+uses System.Windows.Forms, System.Drawing;
+  
+var MainForm: Form;
+  
+MainForm := new Form;
+MainForm.StartPosition := FormStartPosition.CenterScreen;
+MainForm.FormBorderStyle := FormBorderStyle.FixedDialog;
+MainForm.ClientSize := new System.Drawing.Size(500, 500); {Подгоняем под размер изображения}
+MainForm.BackColor := Color.HotPink; {Цвет фона задаём "левый", который больше нигде не будет использоваться}
+MainForm.TransparencyKey := Color.HotPink; {Делаем прозрачным наш "левый" цвет}
+MainForm.BackgroundImage := Image.FromFile('background.png');
+  
+Application.EnableVisualStyles;
+  
+Application.Run(MainForm);
