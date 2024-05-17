@@ -1,0 +1,33 @@
+## //повозился, всё не мог окно увеличить...
+{$apptype windows}
+{$reference 'System.Windows.Forms.dll'}
+{$reference 'System.Drawing.dll'}
+
+uses System.Windows.Forms, System.Drawing,System;
+//форма
+var f1 := new Form;
+f1.Text := 'Меняю цвет';
+f1.StartPosition := FormStartPosition.CenterScreen;
+f1.Width := 300;
+f1.Height := 300;
+var rnd := new Random();
+f1.BackColor := Color.FromArgb(rnd.Next(255),rnd.Next(255),rnd.Next(255));
+//кнопка
+var btn := new Button;
+btn.Text := 'Поменяй цвет!';
+btn.SetBounds(85,180,120,35);   
+btn.BackColor := Color.LightGray;
+//
+btn.Click += (sender, ea) →
+begin
+ f1.BackColor := Color.FromArgb(rnd.Next(255),rnd.Next(255),rnd.Next(255));
+end;
+// 
+f1.DoubleClick += (sender, ea) →
+begin
+ f1.Width += 10;
+ f1.Height += 10;
+end;
+//
+btn.Parent := f1;
+Application.Run(f1);
